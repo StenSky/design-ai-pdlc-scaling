@@ -5,6 +5,45 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Design team — AI tools and skills ready for PDLC scaling</title>
 <style>
+  #gate {
+    position: fixed; inset: 0; z-index: 9999;
+    background: var(--bg, #fff);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 12px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  #gate.hidden { display: none; }
+  #gate h2 { font-size: 18px; font-weight: 500; color: var(--text, #1a1a1a); margin: 0; }
+  #gate p { font-size: 13px; color: var(--text2, #5f5e5a); margin: 0; }
+  #gate input {
+    padding: 10px 16px; font-size: 15px; border: 1px solid var(--border, rgba(0,0,0,0.1));
+    border-radius: 8px; outline: none; width: 260px; text-align: center;
+    background: var(--bg2, #f7f6f3); color: var(--text, #1a1a1a);
+  }
+  #gate input:focus { border-color: var(--blue, #185FA5); }
+  #gate .error { color: var(--red, #A32D2D); font-size: 12px; min-height: 18px; }
+  #content { display: none; }
+  #content.visible { display: block; }
+</style>
+<script>
+  function checkPass() {
+    var input = document.getElementById('pw');
+    var err = document.getElementById('gate-error');
+    if (input.value === 'designslt') {
+      document.getElementById('gate').classList.add('hidden');
+      document.getElementById('content').classList.add('visible');
+      try { sessionStorage.setItem('authed', '1'); } catch(e) {}
+    } else {
+      err.textContent = 'Incorrect password';
+      input.value = '';
+      input.focus();
+    }
+  }
+  window.addEventListener('DOMContentLoaded', function() {
+    try { if (sessionStorage.getItem('authed') === '1') { checkPass = null; document.getElementById('gate').classList.add('hidden'); document.getElementById('content').classList.add('visible'); } } catch(e) {}
+  });
+</script>
+<style>
   :root {
     --bg: #ffffff; --bg2: #f7f6f3; --bg3: #eeecea;
     --text: #1a1a1a; --text2: #5f5e5a; --text3: #88877f;
@@ -108,6 +147,15 @@
 </style>
 </head>
 <body>
+
+<div id="gate">
+  <h2>Design AI tools for PDLC scaling</h2>
+  <p>Enter the password to view this document.</p>
+  <input type="password" id="pw" placeholder="Password" onkeydown="if(event.key==='Enter')checkPass()" autofocus>
+  <div class="error" id="gate-error"></div>
+</div>
+
+<div id="content">
 
 <h1>Design team — AI tools and skills ready for PDLC scaling</h1>
 <p class="doc-sub">Starred experiments, custom tools, and marketplace skills mapped to way-of-working priorities. Links go directly to each artifact or skill.</p>
@@ -354,6 +402,8 @@
 
 <div class="section-note">
   <strong>Note for Gaby:</strong> Gray chips are tools the team rated highly but haven't published a link yet — follow up with the creator to get a demo. Blue chips with ↗ arrows are live artifacts you can click right now. Purple chips are Anthropic marketplace skills the team already uses — all link to <a href="https://claude.ai/customize/skills" target="_blank" style="color:var(--amber);">Customize &gt; Skills</a> where you can find and enable each one by name.
+</div>
+
 </div>
 
 </body>
