@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design team — AI tools and skills ready for PDLC scaling</title>
+<style>
+  :root {
+    --bg: #ffffff; --bg2: #f7f6f3; --bg3: #eeecea;
+    --text: #1a1a1a; --text2: #5f5e5a; --text3: #88877f;
+    --border: rgba(0,0,0,0.1); --border2: rgba(0,0,0,0.06);
+    --blue: #185FA5; --blue-bg: #E6F1FB;
+    --teal: #0F6E56; --teal-bg: #E1F5EE;
+    --amber: #854F0B; --amber-bg: #FAEEDA;
+    --coral: #993C1D; --coral-bg: #FAECE7;
+    --red: #A32D2D; --red-bg: #FCEBEB;
+    --gray: #5F5E5A; --gray-bg: #F1EFE8;
+    --purple: #534AB7; --purple-bg: #EEEDFE;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1a1a1a; --bg2: #2c2c2a; --bg3: #3d3d3a;
+      --text: #e8e6df; --text2: #b4b2a9; --text3: #88877f;
+      --border: rgba(255,255,255,0.12); --border2: rgba(255,255,255,0.06);
+      --blue: #85B7EB; --blue-bg: #042C53;
+      --teal: #5DCAA5; --teal-bg: #04342C;
+      --amber: #FAC775; --amber-bg: #412402;
+      --coral: #F0997B; --coral-bg: #4A1B0C;
+      --red: #F09595; --red-bg: #501313;
+      --gray: #B4B2A9; --gray-bg: #2C2C2A;
+      --purple: #AFA9EC; --purple-bg: #26215C;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg); color: var(--text);
+    max-width: 820px; margin: 0 auto; padding: 2.5rem 2rem 4rem;
+    line-height: 1.6;
+  }
+  h1 { font-size: 22px; font-weight: 600; margin-bottom: 4px; }
+  .doc-sub { font-size: 14px; color: var(--text2); margin-bottom: 8px; }
+  .doc-meta { font-size: 12px; color: var(--text3); margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+
+  .prio-header {
+    display: flex; align-items: center; gap: 12px;
+    margin: 2rem 0 1rem; font-size: 17px; font-weight: 600; color: var(--text);
+  }
+  .prio-header::before, .prio-header::after {
+    content: ''; flex: 1; height: 1px; background: var(--border);
+  }
+
+  .type-header {
+    display: flex; align-items: center; gap: 8px;
+    margin: 1rem 0 0.5rem; padding-left: 4px;
+  }
+  .type-bar { width: 3px; height: 16px; border-radius: 2px; }
+  .type-bar.soft { background: #378ADD; }
+  .type-bar.hard { background: #EF9F27; }
+  .type-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text3); }
+
+  .items { margin-left: 11px; padding-left: 14px; border-left: 1.5px solid var(--border); display: flex; flex-direction: column; gap: 8px; margin-bottom: 1rem; }
+
+  .item-row { display: flex; align-items: stretch; gap: 8px; }
+  .item-card {
+    background: var(--bg2); border: 0.5px solid var(--border);
+    border-radius: 10px; padding: 10px 14px; flex: 1; min-width: 0;
+  }
+  .item-card.coupled { flex: 0 0 240px; }
+  .coupled-plus { display: flex; align-items: center; font-size: 11px; color: var(--text3); padding: 0 2px; }
+
+  .item-name { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 6px; line-height: 1.4; }
+
+  .tools { display: flex; flex-direction: column; gap: 4px; }
+  .tool-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; text-decoration: none; padding: 3px 10px;
+    border-radius: 8px; line-height: 1.5; transition: opacity 0.15s;
+  }
+  .tool-link:hover { opacity: 0.8; }
+
+  .tool-link.custom { background: var(--blue-bg); color: var(--blue); }
+  .tool-link.mp { background: var(--purple-bg); color: var(--purple); }
+  .tool-link.nolink { background: var(--gray-bg); color: var(--gray); cursor: default; }
+  .tool-link.gap { background: var(--red-bg); color: var(--red); font-style: italic; cursor: default; }
+
+  .tool-link .stars { font-size: 11px; opacity: 0.7; }
+  .tool-link .arrow { font-size: 10px; margin-left: 2px; opacity: 0.5; }
+
+  .legend {
+    display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 1.5rem;
+    font-size: 11px; color: var(--text3); padding: 10px 14px;
+    background: var(--bg2); border-radius: 8px;
+  }
+  .legend-item { display: flex; align-items: center; gap: 5px; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 3px; }
+
+  .section-note {
+    font-size: 13px; color: var(--text2); padding: 12px 16px;
+    background: var(--bg2); border-radius: 10px; margin-top: 2rem;
+    border-left: 3px solid var(--amber);
+  }
+
+  @media print {
+    body { max-width: 100%; padding: 1rem; }
+    .tool-link { border: 0.5px solid #ccc; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Design team — AI tools and skills ready for PDLC scaling</h1>
+<p class="doc-sub">Starred experiments, custom tools, and marketplace skills mapped to way-of-working priorities. Links go directly to each artifact or skill.</p>
+<p class="doc-meta">Prepared for Gaby &middot; May 2026 &middot; Design team, Instructure</p>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:var(--blue-bg); border:1px solid var(--blue);"></div> Custom tool (link to artifact)</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--purple-bg); border:1px solid var(--purple);"></div> Marketplace skill (find in <a href="https://claude.ai/customize/skills" target="_blank" style="color:var(--purple);">Customize &gt; Skills</a>)</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--gray-bg); border:1px solid var(--gray);"></div> Custom tool (no link yet)</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--red-bg); border:1px solid var(--red);"></div> Gap &mdash; no tooling</div>
+</div>
+
+<!-- ═══════════════ PRIO 1 ═══════════════ -->
+<div class="prio-header">Priority 1 &mdash; immediate</div>
+
+<div class="type-header"><div class="type-bar soft"></div><div class="type-label">Soft skill</div></div>
+<div class="items">
+
+  <!-- Strategy, ethics -->
+  <div class="item-row">
+    <div class="item-card">
+      <div class="item-name">Strategy, ethics, and stakeholder comms</div>
+      <div class="tools">
+        <span class="tool-link nolink">AI Content Principles — Lisette Walberer <span class="stars">⭐⭐⭐</span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Creating concepts -->
+  <div class="item-row">
+    <div class="item-card">
+      <div class="item-name">Creating and iterating on concepts</div>
+      <div class="tools">
+        <span class="tool-link nolink">Making Concepts — Dmitrii Grishanov <span class="stars">⭐</span></span>
+        <a class="tool-link custom" href="https://github.com/lexijamesesq/Incubator" target="_blank">Idea Incubator — Alexis Bussa <span class="stars">⭐⭐</span> <span class="arrow">↗</span></a>
+        <a class="tool-link mp" href="https://claude.ai/customize/skills" target="_blank">Product Brainstorming <span class="arrow">↗</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step into PM work + coupled -->
+  <div class="item-row">
+    <div class="item-card">
+      <div class="item-name">Step into PM work (JPD, opportunity space, problem definition, usage, users)</div>
+      <div class="tools">
+        <a class="tool-link custom" href="https://github.com/lexijamesesq/Incubator" target="_blank">Idea Incubator — Alexis Bussa <span class="stars">⭐⭐</span> <span class="arrow">↗</span></a>
+        <a class="tool-link mp" href="https://claude.ai/customize/skills" target="_blank">Competitive Brief <span class="arrow">↗</span></a>
+        <a class="tool-link mp" href="https://claude.ai/customize/skills" target="_blank">Product Brainstorming <span class="arrow">↗</span></a>
+      </div>
+    </div>
+    <div class="coupled-plus">+</div>
+    <div class="item-card coupled">
+      <div class="item-name">Product management (+ marketing, analytics, GTM)</div>
+      <div class="tools">
+        <a class="tool-link mp" href="https://claude.ai/customize/skills" target="_blank">Metrics Review <span class="arrow">↗</span></a>
+        <a class="tool-link mp" href="https://claude.ai/customize/skills" target="_blank">Analyze Data <span class="arrow">↗</span></a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="type-header"><div class="type-bar hard"></div><div class="type-label">Hard skill</div></div>
+<div class="items">
+
+  <!-- User research + coupled -->
+  <div class="item-row">
+    <div class="item-card">
+      <div class="item-name">Spend more time with actual users</div>
+      <div class="tools">
+        <a class="tool-link custom" href="https://danjecan.github.io/anchor/" target="_blank">Research Intelligence — Dan Jecan <span class="stars">⭐⭐⭐</span> <span class="arrow">↗</span></a>
+        <span class="tool-link nolink">Community Monitor — Dóra Illés <span class="stars">⭐⭐⭐</span></span>
+        <span class="tool-link nolink">Interview Question Bank — Alexis Bussa <span class="stars">⭐⭐</span></span>
+        <span class="tool-link nolink">Research Q Generator — Ken Arendt <span class="stars">⭐</span></span>
+        <a class="tool-link mp" href="https://claude.ai/customize/skills" target="_blank">Plan User Research <span class="arrow">↗</span></a>
+        <a class="tool-link mp" href="https://claude.ai/customize/skills" target="_blank">Synthesize Research <span class="arrow">↗</span></a>
+      </div>
+    </div>
+    <div class="coupled-plus">+</div>
+    <div class="item-card coupled">
+      <div class="item-name">User research</div>
+    </div>
+  </div>
+
+  <!-- Prototyping -->
+  <div class="item-row">
+    <div class="item-card">
+      <div class="item-name">Prototyping with real models, not static mock-ups</div>
+      <div class="tools">
+        <a class="tool-link custom" href="https://instructure.github.io/instui-sandbox-base/" target="_blank">InstUI Sandbox (base) — Tom Murphy <span class="stars">⭐⭐⭐</span> <span class="arrow">↗</span></a>
+        <a class="tool-link custom" href="https://instructure.github.io/instui-sandbox-ai-platform/4c047732/" target="_blank">InstUI Sandbox (AI platform example) <span class="arrow">↗</span></a>
+        <a class="tool-link mp" href="https://claude.ai/customize/skills" target="_blank">Design Handoff <span class="arrow">↗</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Experiments — GAP -->
+  <div class="item-row">
+    <div class="item-card">
+      <div class="item-name">Designing and driving experiments</div>
+      <div class="tools">
+        <span class="tool-link gap">No experimentation tooling exists</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Steering AI — GAP -->
+  <div class="item-row">
+    <div class="item-card">
+      <div class="item-name">Steering and reviewing AI outputs</div>
+      <div class="tools">
+        <span class="tool-link gap">No AI review tooling exists</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Building AI tools + coupled -->
+  <div class="item-row">
+    <div class="item-card">
+      <div class="item-name">Building AI tools</div>
+      <div class="tools">
+        <a class="tool-link custom" href="https://github.com/lexijamesesq/Metrics" target="_blank">Design Metrics Analysis — Alexis Bussa <span class="stars">⭐⭐</span> <span class="arrow">↗</span></a>
+        <span class="tool-link nolink">AI News Monitor — Dóra Illés <span class="stars">⭐</span></span>
+        <span class="tool-link nolink">Workload Distribution — Alexis Bussa <span class="stars">⭐</span></span>
+      </div>
+    </div>
+    <div class="coupled-plus">+</div>
+    <div class="item-card coupled">
+      <div class="item-name">Design ops / process tool creation</div>
+    </div>
+  </div>
+
+  <!-- Git -->
+  <div class="item-row">
+    <div class="item-card">
+      <div class="item-name">Git / GitHub workflows</div>
+      <div class="tools">
+        <span class="tool-link gap">No Git tooling for designers</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════ PRIO 2 ═══════════════ -->
+<div class="prio-header">Priority 2 &mdash; near-term</div>
+
+<div class="type-header"><div class="type-bar soft"></div><div class="type-label">Soft skill</div></div>
+<div class="items">
+
+  <div class="item-row">
+    <div class="item-card">
+      <div class="item-name">Thinking through user-centric conditions for driving usage and adoption</div>
+      <div class="tools">
+        <a class="tool-link mp" href="https://claude.ai/customize/skills" target="_blank">Metrics Review <span class="arrow">↗</span></a>
+        <a class="tool-link mp" href="https://claude.ai/customize/skills" target="_blank">Analyze Data <span class="arrow">↗</span></a>
+        <a class="tool-link mp" href="https://claude.ai/customize/skills" target="_blank">Validate Data <span class="arrow">↗</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="item-row">
+    <div class="item-card">
+      <div class="item-name">Articulating context and intent required for achieving outcomes</div>
+      <div class="tools">
+        <span class="tool-link gap">No tooling</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="item-row">
+    <div class="item-card">
+      <div class="item-name">Design quality policing (UX & AI principles + coherence)</div>
+      <div class="tools">
+        <span class="tool-link nolink">AI Content Principles — Lisette Walberer <span class="stars">⭐⭐⭐</span></span>
+        <span class="tool-link nolink">A11y Audit for Figma — Michelle Trame <span class="stars">⭐⭐⭐</span></span>
+        <a class="tool-link mp" href="https://claude.ai/customize/skills" target="_blank">Design Critique <span class="arrow">↗</span></a>
+        <a class="tool-link mp" href="https://claude.ai/customize/skills" target="_blank">UX Copy Check <span class="arrow">↗</span></a>
+        <a class="tool-link mp" href="https://claude.ai/customize/skills" target="_blank">Accessibility Review <span class="arrow">↗</span></a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="type-header"><div class="type-bar hard"></div><div class="type-label">Hard skill</div></div>
+<div class="items">
+
+  <div class="item-row">
+    <div class="item-card">
+      <div class="item-name">InstUI (reading code)</div>
+      <div class="tools">
+        <a class="tool-link custom" href="https://instructure.github.io/instui-sandbox-base/" target="_blank">InstUI Sandbox (base) — Tom Murphy <span class="stars">⭐⭐⭐</span> <span class="arrow">↗</span></a>
+        <a class="tool-link custom" href="https://instructure.github.io/instui-sandbox-ai-platform/4c047732/" target="_blank">InstUI Sandbox (AI platform example) <span class="arrow">↗</span></a>
+        <span class="tool-link nolink">V10→V11 Figma Plugin — Russ Roberts & Adam Lobler <span class="stars">⭐⭐</span></span>
+        <span class="tool-link nolink">HTML to Figma — Russ Roberts <span class="stars">⭐</span></span>
+        <a class="tool-link mp" href="https://claude.ai/customize/skills" target="_blank">Design System <span class="arrow">↗</span></a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════ PRIO 3 ═══════════════ -->
+<div class="prio-header">Priority 3 &mdash; longer-term</div>
+
+<div class="type-header"><div class="type-bar soft"></div><div class="type-label">Soft skill</div></div>
+<div class="items">
+  <div style="font-size:13px; color:var(--text3); font-style:italic; padding:4px 0;">No soft skills identified at this tier</div>
+</div>
+
+<div class="type-header"><div class="type-bar hard"></div><div class="type-label">Hard skill</div></div>
+<div class="items">
+
+  <div class="item-row">
+    <div class="item-card">
+      <div class="item-name">Design system governance</div>
+      <div class="tools">
+        <span class="tool-link nolink">V10→V11 Figma Plugin — Russ Roberts & Adam Lobler <span class="stars">⭐⭐</span></span>
+        <a class="tool-link mp" href="https://claude.ai/customize/skills" target="_blank">Design System <span class="arrow">↗</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="item-row">
+    <div class="item-card">
+      <div class="item-name">Designing systems instead of screens</div>
+      <div class="tools">
+        <span class="tool-link gap">No systems-thinking tooling</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="item-row">
+    <div class="item-card">
+      <div class="item-name">Understanding how to design for agentic experiences</div>
+      <div class="tools">
+        <span class="tool-link gap">No agentic design tooling</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="section-note">
+  <strong>Note for Gaby:</strong> Gray chips are tools the team rated highly but haven't published a link yet — follow up with the creator to get a demo. Blue chips with ↗ arrows are live artifacts you can click right now. Purple chips are Anthropic marketplace skills the team already uses — all link to <a href="https://claude.ai/customize/skills" target="_blank" style="color:var(--amber);">Customize &gt; Skills</a> where you can find and enable each one by name.
+</div>
+
+</body>
+</html>
