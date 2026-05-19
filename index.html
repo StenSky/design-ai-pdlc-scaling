@@ -120,6 +120,7 @@
 
   .tool-link.custom { background: var(--blue-bg); color: var(--blue); }
   .tool-link.mp { background: var(--purple-bg); color: var(--purple); }
+  .tool-link.sheet { background: var(--teal-bg); color: var(--teal); }
   .tool-link.nolink { background: var(--gray-bg); color: var(--gray); cursor: default; }
   .tool-link.gap { background: var(--red-bg); color: var(--red); font-style: italic; cursor: default; }
 
@@ -164,7 +165,7 @@
 <div class="legend">
   <div class="legend-item"><div class="legend-dot" style="background:var(--blue-bg); border:1px solid var(--blue);"></div> Custom tool (link to artifact)</div>
   <div class="legend-item"><div class="legend-dot" style="background:var(--purple-bg); border:1px solid var(--purple);"></div> Marketplace skill (find in <a href="https://claude.ai/customize/skills" target="_blank" style="color:var(--purple);">Customize &gt; Skills</a>)</div>
-  <div class="legend-item"><div class="legend-dot" style="background:var(--gray-bg); border:1px solid var(--gray);"></div> Custom tool (no link yet)</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--teal-bg); border:1px solid var(--teal);"></div> Custom tool (links to spreadsheet row)</div>
   <div class="legend-item"><div class="legend-dot" style="background:var(--red-bg); border:1px solid var(--red);"></div> Gap &mdash; no tooling</div>
 </div>
 
@@ -179,7 +180,7 @@
     <div class="item-card">
       <div class="item-name">Strategy, ethics, and stakeholder comms</div>
       <div class="tools">
-        <span class="tool-link nolink">AI Content Principles — Lisette Walberer <span class="stars">⭐⭐⭐</span></span>
+        <a class="tool-link sheet" href="https://docs.google.com/spreadsheets/d/1hEmWTJ4PUxqDluNhrfKDuDiQAc6yzZ3Vj9yRu1VCNNY/edit?gid=0#gid=0&range=A25" target="_blank">AI Content Principles — Lisette Walberer <span class="stars">⭐⭐⭐</span> <span class="arrow">↗</span></a>
       </div>
     </div>
   </div>
@@ -189,7 +190,7 @@
     <div class="item-card">
       <div class="item-name">Creating and iterating on concepts</div>
       <div class="tools">
-        <span class="tool-link nolink">Making Concepts — Dmitrii Grishanov <span class="stars">⭐</span></span>
+        <a class="tool-link sheet" href="https://docs.google.com/spreadsheets/d/1hEmWTJ4PUxqDluNhrfKDuDiQAc6yzZ3Vj9yRu1VCNNY/edit?gid=0#gid=0&range=A20" target="_blank">Making Concepts — Dmitrii Grishanov <span class="stars">⭐</span> <span class="arrow">↗</span></a>
         <a class="tool-link custom" href="https://github.com/lexijamesesq/Incubator" target="_blank">Idea Incubator — Alexis Bussa <span class="stars">⭐⭐</span> <span class="arrow">↗</span></a>
         <a class="tool-link mp" href="https://claude.ai/customize/skills" target="_blank">Product Brainstorming <span class="arrow">↗</span></a>
       </div>
@@ -227,9 +228,9 @@
       <div class="item-name">Spend more time with actual users</div>
       <div class="tools">
         <a class="tool-link custom" href="https://danjecan.github.io/anchor/" target="_blank">Research Intelligence — Dan Jecan <span class="stars">⭐⭐⭐</span> <span class="arrow">↗</span></a>
-        <span class="tool-link nolink">Community Monitor — Dóra Illés <span class="stars">⭐⭐⭐</span></span>
-        <span class="tool-link nolink">Interview Question Bank — Alexis Bussa <span class="stars">⭐⭐</span></span>
-        <span class="tool-link nolink">Research Q Generator — Ken Arendt <span class="stars">⭐</span></span>
+        <a class="tool-link sheet" href="https://docs.google.com/spreadsheets/d/1hEmWTJ4PUxqDluNhrfKDuDiQAc6yzZ3Vj9yRu1VCNNY/edit?gid=0#gid=0&range=A11" target="_blank">Community Monitor — Dóra Illés <span class="stars">⭐⭐⭐</span> <span class="arrow">↗</span></a>
+        <a class="tool-link sheet" href="https://docs.google.com/spreadsheets/d/1hEmWTJ4PUxqDluNhrfKDuDiQAc6yzZ3Vj9yRu1VCNNY/edit?gid=0#gid=0&range=A50" target="_blank">Interview Question Bank — Alexis Bussa <span class="stars">⭐⭐</span> <span class="arrow">↗</span></a>
+        <a class="tool-link sheet" href="https://docs.google.com/spreadsheets/d/1hEmWTJ4PUxqDluNhrfKDuDiQAc6yzZ3Vj9yRu1VCNNY/edit?gid=0#gid=0&range=A22" target="_blank">Research Q Generator — Ken Arendt <span class="stars">⭐</span> <span class="arrow">↗</span></a>
         <a class="tool-link mp" href="https://claude.ai/customize/skills" target="_blank">Plan User Research <span class="arrow">↗</span></a>
         <a class="tool-link mp" href="https://claude.ai/customize/skills" target="_blank">Synthesize Research <span class="arrow">↗</span></a>
       </div>
@@ -278,8 +279,8 @@
       <div class="item-name">Building AI tools</div>
       <div class="tools">
         <a class="tool-link custom" href="https://github.com/lexijamesesq/Metrics" target="_blank">Design Metrics Analysis — Alexis Bussa <span class="stars">⭐⭐</span> <span class="arrow">↗</span></a>
-        <span class="tool-link nolink">AI News Monitor — Dóra Illés <span class="stars">⭐</span></span>
-        <span class="tool-link nolink">Workload Distribution — Alexis Bussa <span class="stars">⭐</span></span>
+        <a class="tool-link sheet" href="https://docs.google.com/spreadsheets/d/1hEmWTJ4PUxqDluNhrfKDuDiQAc6yzZ3Vj9yRu1VCNNY/edit?gid=0#gid=0&range=A5" target="_blank">AI News Monitor — Dóra Illés <span class="stars">⭐</span> <span class="arrow">↗</span></a>
+        <a class="tool-link sheet" href="https://docs.google.com/spreadsheets/d/1hEmWTJ4PUxqDluNhrfKDuDiQAc6yzZ3Vj9yRu1VCNNY/edit?gid=0#gid=0&range=A48" target="_blank">Workload Distribution — Alexis Bussa <span class="stars">⭐</span> <span class="arrow">↗</span></a>
       </div>
     </div>
     <div class="coupled-plus">+</div>
@@ -330,8 +331,8 @@
     <div class="item-card">
       <div class="item-name">Design quality policing (UX & AI principles + coherence)</div>
       <div class="tools">
-        <span class="tool-link nolink">AI Content Principles — Lisette Walberer <span class="stars">⭐⭐⭐</span></span>
-        <span class="tool-link nolink">A11y Audit for Figma — Michelle Trame <span class="stars">⭐⭐⭐</span></span>
+        <a class="tool-link sheet" href="https://docs.google.com/spreadsheets/d/1hEmWTJ4PUxqDluNhrfKDuDiQAc6yzZ3Vj9yRu1VCNNY/edit?gid=0#gid=0&range=A25" target="_blank">AI Content Principles — Lisette Walberer <span class="stars">⭐⭐⭐</span> <span class="arrow">↗</span></a>
+        <a class="tool-link sheet" href="https://docs.google.com/spreadsheets/d/1hEmWTJ4PUxqDluNhrfKDuDiQAc6yzZ3Vj9yRu1VCNNY/edit?gid=0#gid=0&range=A36" target="_blank">A11y Audit for Figma — Michelle Trame <span class="stars">⭐⭐⭐</span> <span class="arrow">↗</span></a>
         <a class="tool-link mp" href="https://claude.ai/customize/skills" target="_blank">Design Critique <span class="arrow">↗</span></a>
         <a class="tool-link mp" href="https://claude.ai/customize/skills" target="_blank">UX Copy Check <span class="arrow">↗</span></a>
         <a class="tool-link mp" href="https://claude.ai/customize/skills" target="_blank">Accessibility Review <span class="arrow">↗</span></a>
@@ -350,8 +351,8 @@
       <div class="tools">
         <a class="tool-link custom" href="https://instructure.github.io/instui-sandbox-base/" target="_blank">InstUI Sandbox (base) — Tom Murphy <span class="stars">⭐⭐⭐</span> <span class="arrow">↗</span></a>
         <a class="tool-link custom" href="https://instructure.github.io/instui-sandbox-ai-platform/4c047732/" target="_blank">InstUI Sandbox (AI platform example) <span class="arrow">↗</span></a>
-        <span class="tool-link nolink">V10→V11 Figma Plugin — Russ Roberts & Adam Lobler <span class="stars">⭐⭐</span></span>
-        <span class="tool-link nolink">HTML to Figma — Russ Roberts <span class="stars">⭐</span></span>
+        <a class="tool-link sheet" href="https://docs.google.com/spreadsheets/d/1hEmWTJ4PUxqDluNhrfKDuDiQAc6yzZ3Vj9yRu1VCNNY/edit?gid=0#gid=0&range=A40" target="_blank">V10→V11 Figma Plugin — Russ Roberts & Adam Lobler <span class="stars">⭐⭐</span> <span class="arrow">↗</span></a>
+        <a class="tool-link sheet" href="https://docs.google.com/spreadsheets/d/1hEmWTJ4PUxqDluNhrfKDuDiQAc6yzZ3Vj9yRu1VCNNY/edit?gid=0#gid=0&range=A45" target="_blank">HTML to Figma — Russ Roberts <span class="stars">⭐</span> <span class="arrow">↗</span></a>
         <a class="tool-link mp" href="https://claude.ai/customize/skills" target="_blank">Design System <span class="arrow">↗</span></a>
       </div>
     </div>
@@ -374,7 +375,7 @@
     <div class="item-card">
       <div class="item-name">Design system governance</div>
       <div class="tools">
-        <span class="tool-link nolink">V10→V11 Figma Plugin — Russ Roberts & Adam Lobler <span class="stars">⭐⭐</span></span>
+        <a class="tool-link sheet" href="https://docs.google.com/spreadsheets/d/1hEmWTJ4PUxqDluNhrfKDuDiQAc6yzZ3Vj9yRu1VCNNY/edit?gid=0#gid=0&range=A40" target="_blank">V10→V11 Figma Plugin — Russ Roberts & Adam Lobler <span class="stars">⭐⭐</span> <span class="arrow">↗</span></a>
         <a class="tool-link mp" href="https://claude.ai/customize/skills" target="_blank">Design System <span class="arrow">↗</span></a>
       </div>
     </div>
@@ -401,7 +402,7 @@
 </div>
 
 <div class="section-note">
-  <strong>Note for Gaby:</strong> Gray chips are tools the team rated highly but haven't published a link yet — follow up with the creator to get a demo. Blue chips with ↗ arrows are live artifacts you can click right now. Purple chips are Anthropic marketplace skills the team already uses — all link to <a href="https://claude.ai/customize/skills" target="_blank" style="color:var(--amber);">Customize &gt; Skills</a> where you can find and enable each one by name.
+  <strong>Note for Gaby:</strong> Blue chips link to live artifacts. Teal chips link to the tool's row in the <a href="https://docs.google.com/spreadsheets/d/1hEmWTJ4PUxqDluNhrfKDuDiQAc6yzZ3Vj9yRu1VCNNY/edit?gid=0#gid=0" target="_blank" style="color:var(--teal);">AI Exploration spreadsheet</a> for full context. Purple chips are Anthropic marketplace skills — find them in <a href="https://claude.ai/customize/skills" target="_blank" style="color:var(--purple);">Customize &gt; Skills</a>.
 </div>
 
 </div>
